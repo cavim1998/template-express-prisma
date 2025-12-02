@@ -18,4 +18,9 @@ export class SampleController {
     const result = await this.sampleServices.getSample(id);
     return res.status(200).send(result);
   };
+
+  createSample = async (req: Request, res: Response) => {
+    const result = await this.sampleServices.createSample(req.body);
+    return res.status(200).send(result);
+  };
 }

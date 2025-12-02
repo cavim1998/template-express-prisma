@@ -1,5 +1,6 @@
 import { ApiError } from "../../utils/apiError";
 import { PrismaService } from "../prisma/prisma.service";
+import { CreateSampleDTO } from "./dto/create-sample.dto";
 
 export class SampleService {
   prisma: PrismaService;
@@ -20,5 +21,15 @@ export class SampleService {
 
     if (!sample) throw new ApiError("Sample not found", 404);
     return sample;
+  };
+
+  createSample = async (body: CreateSampleDTO) => {
+    await this.prisma.sample.create({
+      data: body,
+    });
+
+    return {
+      message: "create sample success",
+    };
   };
 }
