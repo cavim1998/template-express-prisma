@@ -1,0 +1,5 @@
+- cara create container
+docker run --name postgres-container -e POSTGRES_PASSWORD=admin -p 6543:5432 postgres
+
+- cara bind volume ke container
+docker run --name postgres-container -e POSTGRES_PASSWORD=admin -p 6543:5432 -v postgres-volume:/var/lib/postgresql/18/docker postgres
